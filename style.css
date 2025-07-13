@@ -50,3 +50,11 @@ video {
   margin: 0;
   padding: 5px 0;
 }
+.rotate-box {
+  background: #222;
+  padding: 20px 30px;
+  border-radius: 12px;
+  font-size: 1.2em;
+  max-width: 90%;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+}
