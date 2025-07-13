@@ -149,3 +149,11 @@ camera.start();
 
 // 🟢 Start game loop
 drawFrame();
+// Pause/resume bg music when tab visibility changes
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    bgMusic.pause();
+  } else {
+    bgMusic.play();
+  }
+});
