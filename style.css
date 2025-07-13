@@ -11,15 +11,23 @@ html, body {
   position: relative;
   width: 100vw;
   height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to top, #e91bb5, #dfe9f3);  
 }
 
 canvas {
   position: absolute;
-  width: 100%;
+  width: auto;
   height: 100%;
+  aspect-ratio: 4 / 3;
+  max-width: 100%;
+  max-height: 100%;
   transform: scaleX(-1); /* Mirror */
-  object-fit: cover;
-  z-index: 1;
+  object-fit: contain;
+/*   z-index: 1; */
   border-radius: 8px;
 }
 
