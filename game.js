@@ -157,3 +157,20 @@ document.addEventListener("visibilitychange", () => {
     bgMusic.play();
   }
 });
+
+function checkOrientation() {
+  const warning = document.getElementById("rotate-warning");
+  if (window.innerHeight > window.innerWidth) {
+    // Portrait mode
+    warning.style.display = "flex";
+  } else {
+    // Landscape mode
+    warning.style.display = "none";
+  }
+}
+
+// Check once at start
+checkOrientation();
+
+// Listen for changes (e.g. user rotates phone)
+window.addEventListener("resize", checkOrientation);
