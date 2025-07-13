@@ -12,9 +12,21 @@ highScoreElement.innerText = highScore;
 
 // 🧠 Resize canvas to fill screen responsively
 function resizeCanvas() {
-  canvasElement.width = window.innerWidth;
-  canvasElement.height = window.innerHeight;
+  // Maintain 4:3 aspect ratio based on smaller screen dimension
+  const aspectRatio = 4 / 3;
+  let width = window.innerWidth;
+  let height = window.innerHeight;
+
+  if (width / height > aspectRatio) {
+    width = height * aspectRatio;
+  } else {
+    height = width / aspectRatio;
+  }
+
+  canvasElement.width = width;
+  canvasElement.height = height;
 }
+
 window.addEventListener('resize', resizeCanvas);
 resizeCanvas(); // Initial call
 
@@ -163,14 +175,10 @@ function checkOrientation() {
   if (window.innerHeight > window.innerWidth) {
     // Portrait mode
     warning.style.display = "flex";
+    bgMusic.pause();  // also pause game audio
   } else {
     // Landscape mode
     warning.style.display = "none";
+    bgMusic.play();   // resume audio
   }
 }
-
-// Check once at start
-checkOrientation();
-
-// Listen for changes (e.g. user rotates phone)
-window.addEventListener("resize", checkOrientation);
